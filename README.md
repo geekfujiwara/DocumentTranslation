@@ -7,7 +7,7 @@ Power Apps で作成したドキュメント全体を別の言語に翻訳する
 * また、チャットにも翻訳の実行完了とともにファイルのリンクが通知されます。
 * ファイルはOneDrive のルードフォルダに保存されるので、必要に応じて別の場所に移動します。
 
-Azure ドキュメント翻訳:[ドキュメント変換とは - Azure AI services | Microsoft Learn](https://learn.microsoft.com/ja-jp/azure/ai-services/translator/document-translation/overview)
+Azure ドキュメント翻訳: [ドキュメント変換とは - Azure AI services | Microsoft Learn](https://learn.microsoft.com/ja-jp/azure/ai-services/translator/document-translation/overview)
 
 
 > [!NOTE]
@@ -39,7 +39,7 @@ Do untilのところはバッチジョブのステータスを確認して成功
 
 ![image](https://github.com/user-attachments/assets/0615da76-8042-4b5b-a930-7b0ee43d0887)
 
- 
+
 
 # 対応しているファイル形式
 
@@ -194,6 +194,13 @@ OneDrive のルートフォルダにファイルは保存されています。
 > [!NOTE]
 > フランス語だと私は読めないのでうまくいっているかわかりませんが、日本語からフランス語にPowerPoint のファイルを変換してくれた例です。
 > ![image](https://github.com/user-attachments/assets/28d73858-90a0-475b-8ee3-a5bbdfecd138)
+
+# 制限事項
+
+* Azure Translation サービスの制限は[こちら](https://learn.microsoft.com/ja-jp/azure/ai-services/translator/service-limits#document-translation)に記載があります。「非同期 (バッチ) 操作の制限」を御覧ください。
+* こちらのアプリはPower Apps 上であえて制限をかけているのは、ファイル数1とファイルサイズ10MBです。AttachmentControl にてプロパティを変更することで上限を変更することができます。
+  ![image](https://github.com/user-attachments/assets/1624c3d4-fe16-484f-bc60-a33d73874c7b)
+
 
 以上、ご参考になれば幸いです。
 
