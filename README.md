@@ -7,17 +7,56 @@ Power Apps で作成したドキュメント全体を別の言語に翻訳する
 * また、チャットにも翻訳の実行完了とともにファイルのリンクが通知されます。
 * ファイルはOneDrive のルードフォルダに保存されるので、必要に応じて別の場所に移動します。
 
+Azure ドキュメント翻訳:ドキュメント変換とは - Azure AI services | Microsoft Learn
+![image](https://github.com/user-attachments/assets/e1b79706-ce11-477d-bfe7-72ecf847ee76)
+
+
 > [!NOTE]
 > Teams への通知も何故なされるかというと、Power Automate をPower Apps から呼び出した際の最大の待機時間の2分間であるための対処で、その時間を超える処理が経過した際にも完了通知が来るようにするため保険的に行われるようになっています。
 > また、これにより大きいファイルの翻訳にも対応できる仕様としています。
 
 https://github.com/user-attachments/assets/2169afb1-f34e-4717-8306-da3b15413526
 
+# アーキテクチャ
+
+ドキュメント翻訳(Azure Translation) にて翻訳処理を行いつつ、非同期処理のためPower Automate で処理を監視しています。処理が完了したらOneDrive に翻訳後のファイルを保存して、変換が終了したら、一時的に利用したストレージ(BLOB) は削除します。
+
+![image](https://github.com/user-attachments/assets/c100d248-6595-4655-ae0c-6a6d6137b181)
+
+Power Automate のフローはこのようにしています。
+
+![image](https://github.com/user-attachments/assets/fae7ae7a-065b-45d7-bf86-359a27bbfd4f)
+
+Do untilのところはバッチジョブのステータスを確認して成功したらループを抜けるようになっています。
+
+![image](https://github.com/user-attachments/assets/50cbb806-624a-4974-8a3e-6c333ca3e314)
+
+
+# デザイン
+
+レスポンシブデザインに対応しています。
+
+自由な画面サイズで利用いただけます。
+
+![image](https://github.com/user-attachments/assets/0615da76-8042-4b5b-a930-7b0ee43d0887)
+
+ 
+
+# 対応しているファイル形式
+
+対応している形式は以下のとおりです。こちらはAzure Translation サービスに依存しています。
+
+pdf, csv, html, htm, xlf, markdown, mdown, mkdn, md, mkd, mdwn, mdtxt, mdtext, rmd, mthml, mht, xls, xlsx, msg, ppt,  pptx, doc, docx, odt, odp, ods, rtf, tsv/tab, txt
+
+[Azure Translation Serivice | Mcirosoft Learn
+](https://learn.microsoft.com/ja-jp/azure/ai-services/translator/document-translation/overview#batch-supported-document-formats)
+
 # 前提条件
 
 以下が必要です。
 
 * Power Apps Premium ライセンス
+* Azure サブスクリプション
 * Azure ストレージアカウントの管理権利
 * Azure AI Translator の管理権利
 
