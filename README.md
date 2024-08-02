@@ -199,7 +199,8 @@ OneDrive のルートフォルダにファイルは保存されています。
 
 * Azure Translation サービスの制限は[こちら](https://learn.microsoft.com/ja-jp/azure/ai-services/translator/service-limits#document-translation)に記載があります。「非同期 (バッチ) 操作の制限」を御覧ください。
 * こちらのアプリはPower Apps 上であえて制限をかけているのは、ファイル数1とファイルサイズ10MBです。AttachmentControl にてプロパティを変更することで上限を変更することができます。
-  ![image](https://github.com/user-attachments/assets/1624c3d4-fe16-484f-bc60-a33d73874c7b)
+
+![image](https://github.com/user-attachments/assets/1624c3d4-fe16-484f-bc60-a33d73874c7b)
 
 
 以上、ご参考になれば幸いです。
