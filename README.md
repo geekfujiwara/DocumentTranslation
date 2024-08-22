@@ -41,7 +41,9 @@ Do untilのところはバッチジョブのステータスを確認して成功
 
 
 
-# 対応しているファイル形式
+
+# 前提条件
+## 対応しているファイル形式
 
 対応している形式は以下のとおりです。こちらはAzure Translation サービスに依存しています。
 
@@ -50,8 +52,13 @@ pdf, csv, html, htm, xlf, markdown, mdown, mkdn, md, mkd, mdwn, mdtxt, mdtext, r
 [Azure Translation Serivice | Mcirosoft Learn
 ](https://learn.microsoft.com/ja-jp/azure/ai-services/translator/document-translation/overview#batch-supported-document-formats)
 
-# 前提条件
+## 対応しているファイルサイズ
 
+* 最大40MBです。
+  - もしこれを超える場合、ファイルを分割するか、ファイル内のコンテンツを一度削除したりしてください。
+  - 例えば動画が入っている場合、動画は翻訳されませんので、一旦削除して、変換が終わったらまた追加するようにしてください。
+
+## リソース
 以下が必要です。
 
 * Power Apps Premium ライセンス
