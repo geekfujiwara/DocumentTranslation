@@ -148,6 +148,14 @@ Identity の設定がこれで完了しました。
 
 こちらでBLOBの接続情報はMicrosoft Entra ID Integrated として、ログインして接続を作成します。IAMで権限を渡したユーザーでログインします。
 
+更にフローではストレージアカウント名を環境変数から指定します。
+
+![image](https://github.com/user-attachments/assets/e9e74b52-e1c8-4c72-820e-01d1256a53f3)
+
+
+![image](https://github.com/user-attachments/assets/388f4ea3-6fc4-47d5-943a-13495d048a4c)
+
+
 他のコネクタについてもサインインしていないものがありましたらサインインします。接続がすべて作成できましたら次へ移ります。
 
 ![image](https://github.com/user-attachments/assets/703b596b-495a-44f4-9d45-749fdc0197b5)
