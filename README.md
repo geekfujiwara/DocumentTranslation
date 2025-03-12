@@ -83,9 +83,10 @@ Azure ポータルにて、ストレージアカウントを作成します。
 
 ![image](https://github.com/user-attachments/assets/8f065eda-2d32-4564-a2d0-7dfecd03d75c)
 
-作成できましたら、Access keyとStorage Account name を取得しておきます。
+作成できましたら、ストレージアカウントにIAMを設定します。 `ストレージ BLOB データ共同作成者` のロールをアプリ利用者のセキュリティグループに共有するとよいでしょう。
 
-![image](https://github.com/user-attachments/assets/3894c6f2-9527-4f82-9dce-f299e48e1d9d)
+![image](https://github.com/user-attachments/assets/f17338dd-8649-447e-8a00-80220cc71dc0)
+
 
 > [!NOTE]
 > ソリューションをインポートする際の接続情報を作成する際に必要となります。
@@ -103,7 +104,7 @@ Translator と検索します。表示されたサービスを選択して作成
 > [!NOTE]
 > Azure AI 翻訳の価格は[こちら](https://azure.microsoft.com/pricing/details/cognitive-services/translator/)に記載があります。
 
-デプロイされたTranslator のリソースにて、Identity を選択します。Status を有効にして一度保存します。保存後に現れるPermissions からAzure role assignments を行います。
+デプロイされたTranslator のリソースにて、Identity を選択します。Status を有効にして一度保存します。保存後に現れるPermissions から Azure role assignments を行います。
 
 ![image](https://github.com/user-attachments/assets/601818a3-1190-492a-96d9-fe91bdf9e5b9)
 
@@ -120,16 +121,10 @@ Roleの設定は以下のとおりに行います。Resource のところは先�
 
 Identity の設定がこれで完了しました。
 
-次に、Keys and Endpoint に移ります。こちらで、Document Translation のエンドポイント名とKey を取得しておきます。メモ帳などに残しておいてください。
-
-![image](https://github.com/user-attachments/assets/9aad50dd-d5dd-47e9-be8c-6fbf51c0ac38)
-
 ここまでで、以下の項目をメモ帳などに残しているか確認してください。
 
-1. BLOB Access key
-2. BLOB Storage Account name
-3. Document Translation Endpoint Name
-4. Document Translation Key
+1. Document Translation Endpoint Name
+2. Document Translation Key
 
 ## インポート方法
 
@@ -149,9 +144,9 @@ Identity の設定がこれで完了しました。
 
 接続情報を作成します。
 
-![image](https://github.com/user-attachments/assets/ed54b3ee-cf4c-4a68-9740-b20cc406a92b)
+![image](https://github.com/user-attachments/assets/f270549a-b993-4895-831e-6b8006a8c6f6)
 
-こちらでBLOBの接続情報はAccess Key として、先ほど取得したBLOB Storage アカウント名とBLOBのアクセスキーをこちらにペーストして作成ボタンをクリックします。
+こちらでBLOBの接続情報はMicrosoft Entra ID Integrated として、ログインして接続を作成します。IAMで権限を渡したユーザーでログインします。
 
 他のコネクタについてもサインインしていないものがありましたらサインインします。接続がすべて作成できましたら次へ移ります。
 
